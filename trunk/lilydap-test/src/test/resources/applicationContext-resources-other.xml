@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<!-- 数据源配置,在测试环境使用单连接 -->
+    <bean id="otherDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${other.hibernate.connection.driver_class}"/>
+        <property name="url" value="${other.hibernate.connection.url}"/>
+        <property name="username" value="${other.hibernate.connection.username}"/>
+        <property name="password" value="${other.hibernate.connection.password}"/>
+    </bean>
+</beans>

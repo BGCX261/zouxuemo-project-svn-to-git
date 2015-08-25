@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="GBK"?>
+<reports>
+  
+<style>	
+		<class name="default">
+			<style name="fontName" type="string">宋体</style>
+			<style name="fontHeight" type="short">9</style>
+			<style name="boldweight" type="short">BOLDWEIGHT_NORMAL</style>
+			<style name="color" type="short">COLOR_NORMAL</style>
+			<style name="backgroundColor" type="short" scope="word/excel/pdf">COLOR_WHITE</style>
+			<style name="backgroundColor" type="short" scope="html">#EAF4FD</style>
+			<style name="borderTop" type="short">0</style>
+			<style name="borderBottom" type="short">0</style>
+			<style name="borderLeft" type="short">0</style>
+			<style name="borderRight" type="short">0</style>
+			<style name="topBorderColor" type="short">COLOR_BLACK</style>
+			<style name="bottomBorderColor" type="short">COLOR_BLACK</style>
+			<style name="leftBorderColor" type="short">COLOR_BLACK</style>
+			<style name="rightBorderColor" type="short">COLOR_BLACK</style>
+			<style name="alignment" type="short">ALIGN_CENTER</style>
+			<style name="verticalAlignment" type="short">VERTICAL_CENTER</style>
+		</class>
+		   
+		<class name="report">
+			<style name="border-collapse" type="string" scope="html">collapse</style>
+			<style name="table-layout" type="string" scope="html">fixed</style>
+		</class>
+		
+		<class name="title" extend="default">
+			<style name="fontHeight" type="short">16</style>
+			<style name="boldweight" type="short">BOLDWEIGHT_BOLD</style>
+		</class>
+		
+		<class name="top_title" extend="default">
+			<style name="boldweight" type="short">BOLDWEIGHT_BOLD</style>
+		</class>
+		
+		<class name="top_label" extend="default">
+			<style name="alignment" type="short">ALIGN_RIGHT</style>
+		</class>
+		
+		<class name="top_text" extend="default">
+			<style name="alignment" type="short">ALIGN_LEFT</style>
+		</class>
+		
+		<class name="text" extend="default">
+			<style name="borderTop" type="short">1</style>
+			<style name="borderBottom" type="short">1</style>
+			<style name="borderLeft" type="short">1</style>
+			<style name="borderRight" type="short">1</style>
+		</class>
+
+		<class name="noborderText" extend="default">
+			<style name="borderTop" type="short">0</style>
+			<style name="borderBottom" type="short">0</style>
+			<style name="borderLeft" type="short">0</style>
+			<style name="borderRight" type="short">0</style>
+			<style name="boldweight" type="short">BOLDWEIGHT_BOLD</style>
+			<style name="fontName" type="string">宋体</style>
+			<style name="fontHeight" type="short">12</style>
+		</class>
+		
+		<class name="text_left" extend="text">
+			<style name="alignment" type="short">ALIGN_LEFT</style>
+		</class>
+		
+		<class name="text_right" extend="text">
+			<style name="alignment" type="short">ALIGN_RIGHT</style>
+		</class>
+		
+		<class name="header" extend="text">
+			<style name="backgroundColor" type="short" scope="html">#D2E0F1</style>
+			<style name="boldweight" type="short">BOLDWEIGHT_BOLD</style>
+		</class>
+		
+		<class name="header_left" extend="header">
+			<style name="alignment" type="short">ALIGN_LEFT</style>
+		</class>
+		
+		<class name="header_right" extend="header">
+			<style name="alignment" type="short">ALIGN_RIGHT</style>
+		</class>
+		
+		<class name="header_tb" extend="header">
+			<style name="borderLeft" type="short">0</style>
+			<style name="borderRight" type="short">0</style>
+		</class>
+		
+		<class name="header_tbl" extend="header">
+			<style name="borderRight" type="short">0</style>
+		</class>
+		
+		<class name="header_tbr" extend="header">
+			<style name="borderLeft" type="short">0</style>
+		</class>
+		
+		<class name="label" extend="text">
+		</class>
+		
+		<class name="label_indent" extend="label">
+			<style name="indention" type="short">1</style>
+		</class>
+		
+		<class name="label_left" extend="label">
+			<style name="alignment" type="short">ALIGN_LEFT</style>
+		</class>
+		
+		<class name="label_right" extend="label">
+			<style name="alignment" type="short">ALIGN_RIGHT</style>
+		</class>
+		
+		<class name="bottom_text" extend="default">
+			<style name="borderBottom" type="short">1</style>
+		</class>
+		
+		<class name="bottom_text_left" extend="bottom_text">
+			<style name="alignment" type="short">ALIGN_LEFT</style>
+		</class>
+		
+		<class name="bottom_text_right" extend="bottom_text">
+			<style name="alignment" type="short">ALIGN_RIGHT</style>
+		</class>
+		
+		<class name="bottom_label_left" extend="default">
+			<style name="alignment" type="short">ALIGN_LEFT</style>
+		</class>
+		
+		<class name="bottom_label_right" extend="default">
+			<style name="alignment" type="short">ALIGN_RIGHT</style>
+		</class>
+		
+		<class name="tip" extend="default">
+			<style name="alignment" type="short">ALIGN_LEFT</style>
+			<style name="verticalAlignment" type="short">VERTICAL_TOP</style>
+		</class>
+		
+		<class name="textWord">
+			<style name="fontName" type="string">宋体</style>
+			<style name="fontHeight" type="short" scope="word">12</style>
+		</class>
+		<class name="textWordCenter" extend="textWord">
+			<style name="alignment" type="short">ALIGN_CENTER</style>
+		</class>
+		<class name="textWordLeft" extend="textWord">
+			<style name="alignment" type="short">ALIGN_LEFT</style>
+		</class>
+	</style>
+		
+	<report name="test" des="报表测试">
+		<config name="word">
+			<param name="rotate">true</param>
+		</config>
+		<config name="pdf">
+			<param name="rotate">true</param>
+		</config>
+	
+		<datasource name="test">
+			SELECT * FROM report_test
+		</datasource>
+	
+		<table class="report">
+		  <colgroup>
+		  	<col width="250"/>
+		  	<col width="250"/>
+		  	<col width="250"/>
+		  	<col width="150"/>
+		  </colgroup>
+		  <tr height="50">
+		    <td colspan="4" class="title">报表测试</td>
+		  </tr>
+		  <tr height="28">
+		    <td class="top_label">录入人：</td>
+		    <td class="top_text" property="inputMan" colgroup="test"></td>
+		    <td class="top_label">录入日期：</td>
+		    <td class="top_text" property="inputDate"></td>
+		  </tr>
+		  <tr height="28">
+		    <td class="header">组1</td>
+		    <td class="header" colgroup="test">组21</td>
+		    <td class="header">组22</td>
+		    <td class="header">值</td>
+		  </tr>
+		  <tr height="28" datasource="test">
+		    <td class="text" groupid="group1" property="group1"></td>
+		    <td class="text" groupid="group2" property="group21"></td>
+		    <td class="text" groupid="group2" mergeblank="true" property="group22"></td>
+		    <td class="text" property="value" scale="2" displayzero="true"></td>
+		  </tr>
+		  <tr height="28">
+		    <td class="bottom_label_right">总金额：</td>
+		    <td property="totalMoney" scale="0" class="bottom_text" colgroup="test"></td>
+		    <td class="bottom_label_right">审批人：</td>
+		    <td class="bottom_text" property="auditMan"></td>
+		  </tr>
+		  <tr height="20">
+		    <td colspan="4" class="tip"></td>
+		  </tr>
+		  <tr height="300">
+		    <td colspan="2" class="default">
+				<chart type="bar3d" datasource="test">					<!--指定柱状图的类型（二维/三维）和图表数据源、以及图表在单元格中占的宽度、高度百分比-->
+					<param name="categoryfield">group1</param>			<!--指定柱状图的各项分类，参数可选-->
+					<param name="namefield">group21</param>				<!--指定柱状图的各项名称，必须-->
+					<param name="valuefield">value</param>				<!--指定柱状图的各项值，必须-->
+					<param name="valueaxislabel">数值轴标签</param>		<!--指定数值轴标签名，参数可选-->
+					<param name="legend">true</param>					<!--是否显示项目说明，默认不显示-->
+					<param name="horizontal">true</param>				<!--柱图是否水平显示，默认垂直显示-->
+				</chart>
+		    </td>
+		    <td colspan="2" class="default">
+				<chart type="pie3d" datasource="test">					<!--指定饼图的类型（二维/三维）和图表数据源、以及图表在单元格中占的宽度、高度百分比-->
+					<param name="title">饼图演示</param>				<!--指定图表标题，参数可选-->
+					<param name="namefield">group1</param>				<!--指定饼图的各项名称，必须-->
+					<param name="valuefield">value</param>				<!--指定饼图的各项值，必须-->
+					<param name="legend">true</param>					<!--是否显示项目说明，默认不显示-->
+					<param name="labelformat">{1}</param>			<!--指定饼图的标签格式-->
+				</chart>
+		    </td>
+		  </tr>
+		  <tr height="300">
+		    <td colspan="4" class="default">
+				<chart type="bar" datasource="test" width="50">		<!--指定柱状图的类型（二维/三维）和图表数据源、以及图表在单元格中占的宽度、高度百分比-->
+					<param name="backgroundcolor">a0a0a0</param>
+					<param name="showvalueonbar">true</param>
+					<param name="categoryfield">group1</param>			<!--指定柱状图的各项分类，参数可选-->
+					<param name="namefield">group21</param>				<!--指定柱状图的各项名称，必须-->
+					<param name="valuefield">value</param>				<!--指定柱状图的各项值，必须-->
+					<param name="valueaxislabel">数值轴标签</param>		<!--指定数值轴标签名，参数可选-->
+				</chart>
+		    </td>
+		  </tr>
+		</table>
+	</report>
+		
+	<report name="roster" des="职工花名册">
+		<datasource name="roster">
+			SELECT * FROM lzfx_roster where unit = '{queryUnit}'
+		</datasource>
+	
+		<table class="report">
+		  <colgroup>
+		  	<col width="60"/>
+		  	<col width="250"/>
+		  	<col width="250"/>
+		  	<col width="250"/>
+		  </colgroup>
+		  <tr height="50">
+		    <td colspan="4" class="title">淄川分局干部职工花名册</td>
+		  </tr>
+		  <tr height="28">
+		    <td class="top_label"></td>
+		    <td class="top_text" ></td>
+		    <td class="top_label"></td>
+		    <td class="top_text">{queryUnit}</td>
+		  </tr>
+		  <tr height="28">
+		    <td class="header">序  号</td>
+		    <td class="header">姓  名</td>
+		    <td class="header">单  位</td>
+		    <td class="header">职  务</td>
+		  </tr>
+		  <tr height="28" datasource="roster">
+		    <td class="text" property="$ROW_INDEX$"></td>
+		    <td class="text" property="name"></td>
+		    <td class="text" property="unit"></td>
+		    <td class="text" property="post" ></td>
+		  </tr>
+		</table>
+	</report>
+		
+	<report name="prevention" des="风险排查与防范表">
+		<datasource name="prevention">
+			SELECT * FROM lzfx_prevention
+		</datasource>
+	
+		<table class="report">
+		  <colgroup>
+		  	<col width="60"/>
+		  	<col width="200"/>
+		  	<col width="120"/>
+		  	<col width="140"/>
+		  	<col width="300"/>
+		  	<col width="300"/>
+		  </colgroup>
+		  <tr height="50">
+		    <td colspan="6" class="title">风险排查与防范表</td>
+		  </tr>
+		  <tr height="28">
+		    <td class="header">序  号</td>
+		    <td class="header">涉及岗位</td>
+		    <td class="header">风险类别</td>
+		    <td class="header">岗位职责</td>
+		    <td class="header">风 险 点</td>
+		    <td class="header">防范措施</td>
+		  </tr>
+		  <tr height="45" datasource="prevention">
+		    <td class="text" property="$ROW_INDEX$"></td>
+		    <td class="text" property="post"></td>
+		    <td class="text" property="category"></td>
+		    <td class="text" property="responsibility"></td>
+		    <td class="text_left" property="risk_point"></td>
+		    <td class="text_left" property="preventive_measures" ></td>
+		  </tr>
+		</table>
+	</report>
+		
+	<report name="risk_post" des="岗位情况表">
+		<beforesql>
+			delete from lzfx_rp_risk_post
+			insert into lzfx_rp_risk_post (name, risk_post1, risk_post2, risk_post3, risk_post4, risk_post5, risk_post6, risk_post7, risk_post8, risk_post9, risk_post10)
+			SELECT name, '', '', '', '', '', '', '', '', '', '' FROM lzfx_roster where name in (select name from lzfx_risk_post)
+			
+			update lzfx_rp_risk_post set risk_post1 = risk_post from lzfx_rp_risk_post, lzfx_risk_post where lzfx_rp_risk_post.name = lzfx_risk_post.name and lzfx_risk_post.sn = 1
+			update lzfx_rp_risk_post set risk_post2 = risk_post from lzfx_rp_risk_post, lzfx_risk_post where lzfx_rp_risk_post.name = lzfx_risk_post.name and lzfx_risk_post.sn = 2
+			update lzfx_rp_risk_post set risk_post3 = risk_post from lzfx_rp_risk_post, lzfx_risk_post where lzfx_rp_risk_post.name = lzfx_risk_post.name and lzfx_risk_post.sn = 3
+			update lzfx_rp_risk_post set risk_post4 = risk_post from lzfx_rp_risk_post, lzfx_risk_post where lzfx_rp_risk_post.name = lzfx_risk_post.name and lzfx_risk_post.sn = 4
+			update lzfx_rp_risk_post set risk_post5 = risk_post from lzfx_rp_risk_post, lzfx_risk_post where lzfx_rp_risk_post.name = lzfx_risk_post.name and lzfx_risk_post.sn = 5
+			update lzfx_rp_risk_post set risk_post6 = risk_post from lzfx_rp_risk_post, lzfx_risk_post where lzfx_rp_risk_post.name = lzfx_risk_post.name and lzfx_risk_post.sn = 6
+			update lzfx_rp_risk_post set risk_post7 = risk_post from lzfx_rp_risk_post, lzfx_risk_post where lzfx_rp_risk_post.name = lzfx_risk_post.name and lzfx_risk_post.sn = 7
+			update lzfx_rp_risk_post set risk_post8 = risk_post from lzfx_rp_risk_post, lzfx_risk_post where lzfx_rp_risk_post.name = lzfx_risk_post.name and lzfx_risk_post.sn = 8
+			update lzfx_rp_risk_post set risk_post9 = risk_post from lzfx_rp_risk_post, lzfx_risk_post where lzfx_rp_risk_post.name = lzfx_risk_post.name and lzfx_risk_post.sn = 9
+			update lzfx_rp_risk_post set risk_post10 = risk_post from lzfx_rp_risk_post, lzfx_risk_post where lzfx_rp_risk_post.name = lzfx_risk_post.name and lzfx_risk_post.sn = 10
+		</beforesql>
+		<datasource name="risk_post">
+			SELECT roster.name, roster.unit, roster.post, risk_post.risk_post1, risk_post.risk_post2, 
+			risk_post.risk_post3, risk_post.risk_post4, risk_post.risk_post5, risk_post.risk_post6, 
+			risk_post.risk_post7, risk_post.risk_post8, risk_post.risk_post9, risk_post.risk_post10, 
+			roster.sn AS sn FROM lzfx_rp_risk_post risk_post INNER JOIN lzfx_roster roster ON risk_post.name = roster.name		
+		</datasource>
+	
+		<table class="report">
+		  <colgroup>
+		  	<col width="60"/>
+		  	<col width="100"/>
+		  	<col width="100"/>
+		  	<col width="100"/>
+		  	<col width="80"/>
+		  	<col width="80"/>
+		  	<col width="80"/>
+		  	<col width="80"/>
+		  	<col width="80"/>
+		  	<col width="80"/>
+		  	<col width="80"/>
+		  	<col width="80"/>
+		  	<col width="80"/>
+		  	<col width="80"/>
+		  </colgroup>
+		  <tr height="50">
+		    <td colspan="14" class="title">岗位情况表</td>
+		  </tr>
+		  <tr height="36">
+		    <td class="header">序  号</td>
+		    <td class="header">姓  名</td>
+		    <td class="header">单  位</td>
+		    <td class="header">职  务</td>
+		    <td class="header">风险&lt;br&gt;岗位职责1</td>
+		    <td class="header">风险&lt;br&gt;岗位职责2</td>
+		    <td class="header">风险&lt;br&gt;岗位职责3</td>
+		    <td class="header">风险&lt;br&gt;岗位职责4</td>
+		    <td class="header">风险&lt;br&gt;岗位职责5</td>
+		    <td class="header">风险&lt;br&gt;岗位职责6</td>
+		    <td class="header">风险&lt;br&gt;岗位职责7</td>
+		    <td class="header">风险&lt;br&gt;岗位职责8</td>
+		    <td class="header">风险&lt;br&gt;岗位职责9</td>
+		    <td class="header">风险&lt;br&gt;岗位职责10</td>
+		  </tr>
+		  <tr height="36" datasource="risk_post">
+		    <td class="text" property="$ROW_INDEX$"></td>
+		    <td class="text" property="name"></td>
+		    <td class="text" property="unit"></td>
+		    <td class="text" property="post" ></td>
+		    <td class="text" property="risk_post1" ></td>
+		    <td class="text" property="risk_post2" ></td>
+		    <td class="text" property="risk_post3" ></td>
+		    <td class="text" property="risk_post4" ></td>
+		    <td class="text" property="risk_post5" ></td>
+		    <td class="text" property="risk_post6" ></td>
+		    <td class="text" property="risk_post7" ></td>
+		    <td class="text" property="risk_post8" ></td>
+		    <td class="text" property="risk_post9" ></td>
+		    <td class="text" property="risk_post10" ></td>
+		  </tr>
+		</table>
+	</report>
+		
+	<report name="risk_prevention" des="个人风险排查与防范">
+		<datasource name="roster">
+			SELECT * FROM lzfx_roster
+		</datasource>
+		<datasource name="risk_prevention1">
+			SELECT * FROM lzfx_prevention where category = '思想道德与制度机制' order by sn;
+		</datasource>
+		<datasource name="risk_prevention2">
+			SELECT lzfx_risk_post.name, lzfx_risk_post.sn AS sn, lzfx_prevention.responsibility, lzfx_prevention.risk_point, lzfx_prevention.preventive_measures
+			FROM lzfx_risk_post INNER JOIN lzfx_prevention ON lzfx_risk_post.risk_post = lzfx_prevention.post
+		</datasource>
+	
+		<table class="report" datasource="roster">
+		  <colgroup>
+		  	<col width="60"/>
+		  	<col width="120"/>
+		  	<col width="60"/>
+		  	<col width="240"/>
+		  	<col width="60"/>
+		  	<col width="240"/>
+		  </colgroup>
+		  <tr height="50">
+		    <td colspan="6" class="title">廉政风险提示（思想道德和制度机制方面）</td>
+		  </tr>
+		  <tr height="36">
+		    <td class="text">姓名</td>
+		    <td class="text" property="name"></td>
+		    <td class="text">单位</td>
+		    <td class="text" property="unit"></td>
+		    <td class="text">职务</td>
+		    <td class="text" property="post"></td>
+		  </tr>
+		  <tr height="36">
+		    <td class="header">序  号</td>
+		    <td class="header">风险类别</td>
+		    <td class="header" colspan="2">风 险 点</td>
+		    <td class="header" colspan="2">防范措施</td>
+		  </tr>
+		  <tr height="45" datasource="risk_prevention1">
+		    <td class="text" property="$ROW_INDEX$"></td>
+		    <td class="text" groupid="class" property="responsibility"></td>
+		    <td class="text_left" colspan="2" property="risk_point"></td>
+		    <td class="text_left" colspan="2" property="preventive_measures"></td>
+		  </tr>
+		  <tr height="50">
+		    <td colspan="6" class="title"> </td>
+		  </tr>
+		  <tr height="50">
+		    <td colspan="6" class="title">廉政风险提示（岗位风险方面）</td>
+		  </tr>
+		  <tr height="36">
+		    <td class="text">姓名</td>
+		    <td class="text" property="name"></td>
+		    <td class="text">单位</td>
+		    <td class="text" property="unit"></td>
+		    <td class="text">职务</td>
+		    <td class="text" property="post"></td>
+		  </tr>
+		  <tr height="36">
+		    <td class="header">序  号</td>
+		    <td class="header">职  责</td>
+		    <td class="header" colspan="2">风 险 点</td>
+		    <td class="header" colspan="2">防范措施</td>
+		  </tr>
+		  <tr height="45" datasource="risk_prevention2">
+		    <td class="text" property="$ROW_INDEX$"></td>
+		    <td class="text" property="responsibility"></td>
+		    <td class="text_left" colspan="2" property="risk_point"></td>
+		    <td class="text_left" colspan="2" property="preventive_measures"></td>
+		  </tr>
+		</table>
+	</report>
+</reports>

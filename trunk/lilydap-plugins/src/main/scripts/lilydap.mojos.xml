@@ -1,0 +1,9 @@
+<pluginMetadata>   
+         <mojos>   
+                   <mojo>   
+                            <goal>scan-jsptag</goal>   
+                            <call>webdoclet</call>   
+                            <description>Generate JSP TLD and other web artifacts.</description>   
+                   </mojo>   
+         </mojos>   
+</pluginMetadata>   

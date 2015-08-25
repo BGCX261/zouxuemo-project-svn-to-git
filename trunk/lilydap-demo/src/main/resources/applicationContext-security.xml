@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:s="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd"
+	default-lazy-init="true">
+
+	<description>SpringSecurity安全配置</description>
+
+	<!-- http安全配置 -->
+	<s:http auto-config="true">
+		<s:intercept-url pattern="/common/*.jsp" filters="none" />
+		<s:intercept-url pattern="/styles/**" filters="none" />
+		<s:intercept-url pattern="/images/**" filters="none" />
+		<s:intercept-url pattern="/scripts/**" filters="none" />
+		<s:intercept-url pattern="/favicon.ico" filters="none" />
+		
+		<s:intercept-url pattern="/login.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		
+		<s:intercept-url pattern="/**" access="ROLE_guest" />
+
+		<s:form-login login-page="/login.jsp" default-target-url="/index.jsp" authentication-failure-url="/login.jsp?error=1" />
+		<s:access-denied-handler error-page="/common/403.jsp"/>
+		<s:logout logout-success-url="/index.jsp" />
+		<s:session-management invalid-session-url="/login.jsp?error=3">
+<!--			<s:concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />-->
+		</s:session-management>
+
+<!--		<s:custom-filter after="SECURITY_CONTEXT_FILTER" ref="autoLoginFilter" />-->
+	</s:http>
+
+	<!-- 方法安全配置 -->
+<!--	<s:global-method-security secured-annotations="enabled" />-->
+
+	<!-- 认证配置 -->
+	<s:authentication-manager alias="authenticationManager">
+		<s:authentication-provider user-service-ref="userDetailsService">
+			<s:password-encoder hash="sha" />
+		</s:authentication-provider>
+	</s:authentication-manager>
+
+	<!-- 项目实现的用户查询服务  -->
+<!--	<bean id="userDetailsService" class="org.springside.examples.showcase.security.UserDetailsServiceImpl" />-->
+    <bean id="userDetailsService" class="com.lily.dap.webapp.security.RbacUserDetailService">
+        <property name="rolePrefix" value="ROLE_"/>
+		<property name="detailServiceHandles">
+			<list>
+				<bean class="com.lily.dap.webapp.security.PersonDetailServiceHandle">
+					<property name="roleManager" ref="roleManager"/>
+					<property name="personManager" ref="personManager"/>
+				</bean>
+			</list>
+		</property>
+    </bean>
+</beans>

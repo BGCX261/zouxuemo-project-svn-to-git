@@ -1,0 +1,23 @@
+$.table_init($("#tableid"));
+$("#tableid").loadData({
+	url: '',
+	mode: '',
+	entityClass: '',
+	finished: function(el, record) {
+	}
+})
+
+$("tableid").readyRemove()
+$("tableid").remove()
+
+$("#tableid").saveData({
+	url: '',
+	mode: '',
+	entityClass: '',
+	onlyModify: true,
+	oneSubmit: true,
+	success: function(el, data) {
+	},
+	failure: function(el, data) {
+	}
+}) 

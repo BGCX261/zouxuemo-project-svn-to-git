@@ -1,0 +1,90 @@
+TD {
+	FONT-SIZE: 12px; FONT-FAMILY: 宋体
+}
+P {
+	FONT-SIZE: 12px; FONT-FAMILY: 宋体
+}
+LI {
+	FONT-SIZE: 12px; FONT-FAMILY: 宋体
+}
+A:link {
+	FONT-SIZE: 12px; COLOR: #000099; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #000099; TEXT-DECORATION: none
+}
+A:active {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: red; TEXT-DECORATION: underline
+}
+A.b:link {
+	FONT-SIZE: 12px; COLOR: black; TEXT-DECORATION: none
+}
+A.b:visited {
+	FONT-SIZE: 12px; COLOR: black; TEXT-DECORATION: none
+}
+A.b:hover {
+	FONT-SIZE: 12px; COLOR: red; TEXT-DECORATION: none
+}
+A.a:link {
+	FONT-SIZE: 12px; COLOR: white; TEXT-DECORATION: none
+}
+A.a:visited {
+	FONT-SIZE: 12px; COLOR: white; TEXT-DECORATION: none
+}
+A.a:hover {
+	FONT-SIZE: 12px; COLOR: red; TEXT-DECORATION: none
+}
+.line {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid
+}
+.win {
+	BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; BORDER-LEFT: 0px solid; BORDER-BOTTOM: 0px solid
+}
+.test1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 18pt; COLOR: red; FONT-FAMILY: "华文新魏"
+}
+.test2 {
+	FONT-SIZE: 16pt; COLOR: red; FONT-FAMILY: "MS Song"
+}
+.test3 {
+	FONT-SIZE: 18pt; COLOR: #ff0000; FONT-FAMILY: "隶书"
+}
+.unnamed1 {
+	image-decoration: none
+}
+.top {
+	FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: #ff0000; FONT-FAMILY: "华文行楷"
+}
+.chartop {
+	FONT-WEIGHT: bolder; FONT-SIZE: 16px; COLOR: #ff0000; FONT-FAMILY: "华文新魏"
+}
+.table1 {
+	BORDER-RIGHT: #cccccc thin; BORDER-TOP: #cccccc thin solid; BORDER-LEFT: #cccccc thin; BORDER-BOTTOM: #cccccc thin solid
+}
+.typec {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #000000
+}
+.table2 {
+	FONT-SIZE: 12px
+}
+.table3 {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FLOAT: none; PADDING-BOTTOM: 1px; MARGIN: auto; WIDTH: 580px; PADDING-TOP: 1px; HEIGHT: 20px
+}
+.sele1 {
+	BACKGROUND-POSITION: center center; BORDER-TOP-STYLE: none
+}
+.sele1 {
+	BACKGROUND-POSITION: center center; BORDER-TOP-STYLE: none
+}
+.input {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 12px; BACKGROUND: url(images/cssbmp/inputbg.gif); BORDER-LEFT: #000000 1px solid; LINE-HEIGHT: 15px; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: Verdana,Tahoma,宋体
+}
+.select {
+	BORDER-RIGHT: thin; BORDER-TOP: thin; BACKGROUND-IMAGE: url(images/cssbmp/inputbg.gif); BORDER-LEFT: thin; BORDER-BOTTOM: thin
+}
+.submit {
+	
+}

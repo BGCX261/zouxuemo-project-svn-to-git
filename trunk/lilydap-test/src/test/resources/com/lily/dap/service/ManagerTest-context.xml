@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop" 
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+					       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            			   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+					       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+    <aop:config>
+        <aop:advisor id="managerTx" advice-ref="txAdvice" pointcut="execution(* com.lily.dap.service..*Manager.*(..))"/>
+    </aop:config>
+
+	<context:annotation-config/>
+	
+    <!-- Enable @Transactional support -->
+    <tx:annotation-driven/>
+    
+    <!-- Enable @AspectJ support -->
+    <aop:aspectj-autoproxy/>
+    
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true" no-rollback-for="com.lily.dap.service.exception.DataNotExistException"/>
+            <tx:method name="count*" read-only="true" no-rollback-for="com.lily.dap.service.exception.DataNotExistException"/>
+            <tx:method name="*" no-rollback-for="com.lily.dap.service.exception.DataNotExistException"/>
+        </tx:attributes>
+    </tx:advice>
+
+	<bean class="com.lily.dap.service.SpringContextHolder" lazy-init="false"/>
+	
+	<bean id= "manager" class="com.lily.dap.service.core.ManagerImpl"/>
+</beans>

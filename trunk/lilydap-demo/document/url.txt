@@ -1,0 +1,4 @@
+http://localhost:8080/lilydap-demo/demo/module-crud!get.action?id=1
+http://localhost:8080/lilydap-demo/demo/module-crud!save.action?code=002&name=name2
+http://localhost:8080/lilydap-demo/demo/module-crud!list.action?condition.code.like=001
+http://localhost:8080/lilydap-demo/system/system-setting.action

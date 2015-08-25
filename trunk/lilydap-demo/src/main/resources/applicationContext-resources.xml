@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- 定义受环境影响易变的变量 -->
+	<context:property-placeholder location="classpath:database.properties,classpath:system.properties"/>
+<!--	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+<!--		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />-->
+<!--		<property name="ignoreResourceNotFound" value="true" />-->
+<!--		<property name="locations">-->
+<!--            <list>-->
+<!--                <value>classpath:database.properties</value>-->
+<!--                <value>classpath:system.properties</value>-->
+<!--            </list>-->
+<!--		</property>-->
+<!--	</bean>-->
+	
+	<!-- 数据源配置,在测试环境使用单连接 -->
+    <!-- bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${hibernate.connection.driver_class}"/>
+        <property name="url" value="${hibernate.connection.url}"/>
+        <property name="username" value="${hibernate.connection.username}"/>
+        <property name="password" value="${hibernate.connection.password}"/>
+    </bean -->
+    
+	<!-- 数据源配置,在生产环境使用连接池连接 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+      <property name="driverClass" value="${hibernate.connection.driver_class}"/>
+      <property name="jdbcUrl" value="${hibernate.connection.url}"/>
+      <property name="properties">
+        <props>
+            <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> 
+            <prop key="c3p0.minPoolSize">50</prop> 
+            <prop key="hc3p0.maxPoolSize">200</prop> 
+            <prop key="hc3p0.timeout">100</prop> 
+            <prop key="c3p0.max_statement">50</prop> 
+            <prop key="c3p0.testConnectionOnCheckout">true</prop> 
+            <prop key="hibernate.c3p0.testConnectionOnCheckout">false</prop>
+	        <prop key="user">${hibernate.connection.username}</prop>
+	        <prop key="password">${hibernate.connection.password}</prop>
+        </props>
+      </property>
+    </bean>
+</beans>
